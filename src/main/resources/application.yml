@@ -1,1 +1,16 @@
-spring.application.name=keycloak
+# Spring設定
+spring:
+  # アプリケーション名
+  application:
+    name: keycloak
+  # OAuth2設定
+  security:
+    oauth2:
+      resourceserver:
+       jwt:
+         issuer-uri: http://localhost:8080/realms/news_realm
+         jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+# 起動ポート
+server:
+  port: 8081
